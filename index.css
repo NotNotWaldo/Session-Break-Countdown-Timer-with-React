@@ -6,6 +6,9 @@
 }
 
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
   font-size: 20px;
   font-weight: bolder;
@@ -182,13 +185,14 @@ code {
     overflow-x: hidden;
     padding: 0 0 0 0;
     overflow-y: scroll;
+    background: var(--first);
   }
   body #root {
-    overflow-x: hidden;
+    height: 850px;
+    overflow: hidden;
   }
   body #root .timer {
-    overflow-x: hidden;
-    overflow-y: scroll;
+    overflow: hidden;
     padding: 0 0 0 0;
     flex-direction: column;
     width: 100%;
