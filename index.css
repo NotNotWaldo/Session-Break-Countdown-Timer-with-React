@@ -179,15 +179,16 @@ code {
 }
 @media only screen and (max-width: 880px) {
   body {
-    overflow: hidden;
+    overflow-x: hidden;
     padding: 0 0 0 0;
     overflow-y: scroll;
   }
   body #root {
-    overflow: hidden;
+    overflow-x: hidden;
   }
   body #root .timer {
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
     padding: 0 0 0 0;
     flex-direction: column;
     width: 100%;
@@ -195,6 +196,7 @@ code {
     align-items: center;
     justify-content: center;
     border-radius: 0;
+    gap: 30px;
   }
 }
 @media only screen and (max-height: 550px) {
