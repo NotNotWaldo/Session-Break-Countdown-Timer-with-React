@@ -1,21 +1,14 @@
 :root {
-  --first: #05386b;
-  --sec: #379683;
-  --third: #5cdb95;
-  --fourth: #8ee4af;
-  --fifth: #edf5e1;
+  --first: #FFF9CA;
+  --sec: #FFDEB4;
+  --third: #FFB4B4;
+  --fourth: #B2A4FF;
 }
 
 body {
   overflow: hidden;
+  font-size: 20px;
   font-weight: bolder;
-  width: 100vw;
-  height: 100vh;
-  color: var(--fifth);
-  font-size: 1.5em;
-  background: var(--third);
-  margin: 0;
-  font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-touch-callout: none;
@@ -23,139 +16,179 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--fourth);
+}
+body #playPause {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--fourth);
+  border-radius: 5px;
+}
+body #playPause path {
+  fill: var(--fourth);
+}
+body #resetBtn {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--fourth);
+  border-radius: 5px;
+}
+body #resetBtn path {
+  fill: var(--fourth);
+}
+body svg {
+  transition: 300ms linear;
+}
+body svg:hover {
+  background: rgb(233, 233, 233);
 }
 body #root {
-  border-radius: 70px;
-  padding: 60px 90px;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
-  align-content: center;
   align-items: center;
-  background: var(--fifth);
 }
-body #root .calculator {
-  width: 1000px;
-  background: var(--fifth);
+body #root .btn {
+  margin: 0;
+  padding: 0;
+  padding: 5px;
+}
+body #root .btn svg {
+  border: 2px solid var(--fourth);
+  border-radius: 5px;
+  margin: 0;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+}
+body #root .btn svg path {
+  stroke: var(--fourth);
+  fill: var(--fourth);
+}
+body #root .timer {
+  border-radius: 30px;
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: center;
-  gap: 75px;
-  align-items: center;
+  flex-direction: row;
+  gap: 100px;
+  background: var(--first);
+  box-shadow: 30px 30px 0 var(--sec);
+  padding: 60px 80px;
 }
-body #root .calculator .side {
+body #root .timer .timer_display {
   display: flex;
   flex-direction: column;
+}
+body #root .timer .timer_display .timer-graph {
+  display: flex;
+  flex-direction: row;
+  width: 350px;
   justify-content: space-around;
 }
-body #root .calculator .side .logCon {
-  background: var(--fourth);
-  width: 350px;
+body #root .timer .timer_display .timer-graph .graphCon {
   display: flex;
-  flex-direction: column-reverse;
-  justify-content: center;
-  align-items: center;
-  border-radius: 30px;
-  text-align: end;
-  padding: 10px 30px;
+  flex-direction: column;
 }
-body #root .calculator .side .logCon .hisLog {
-  width: 100%;
-  background-color: var(--sec);
-  height: 30px;
-  padding: 20px;
-  overflow: hidden;
+body #root .timer .timer_display .timer-graph .graphCon h3 {
+  margin: 10px 0 0 0;
 }
-body #root .calculator .side .logCon .top {
-  border-radius: 20px 20px 0 0;
-}
-body #root .calculator .side .logCon .bottom {
-  border-radius: 0 0 20px 20px;
-}
-body #root .calculator .side .displayCon {
-  width: 390px;
-  background: var(--third);
+body #root .timer .timer_display .timer-graph .graph {
+  transition: 700ms ease;
+  width: 70px;
+  height: 270px;
   border-radius: 20px;
-  padding: 10px;
-}
-body #root .calculator .side .displayCon #display {
-  overflow: hidden;
   background: var(--sec);
-  color: var(--fifth);
-  height: 60px;
-  justify-content: flex-end;
   display: flex;
+  justify-content: center;
   align-items: center;
-  text-align: end;
+}
+body #root .timer .timer_display .timer-graph .graph .barCon {
   border-radius: 10px;
-  padding: 0 10px;
-}
-body #root .calculator .btns {
-  padding: 15px;
+  overflow: hidden;
+  width: 45px;
+  height: 245px;
   background: var(--third);
-  display: grid;
-  grid-template-columns: repeat(4, 65px);
-  grid-template-rows: repeat(5, 65px);
-  grid-template-areas: "clear clear equals equals" "seven eight nine add" "four five six subtract" "one two three multiply" "zero decimal decimal divide";
-  gap: 10px;
-  border-radius: 30px;
-}
-body #root .calculator .btns .item {
   display: flex;
-  background: var(--sec);
-  text-align: center;
+  justify-content: center;
+  position: relative;
+}
+body #root .timer .timer_display .timer-graph .graph .barCon .bar {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--fourth);
+  border-radius: 10px;
+  bottom: 0%;
+  transition: 300ms ease;
+}
+body #root .timer .control {
+  display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
-  cursor: pointer;
+  gap: 10px;
+}
+body #root .timer .controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+body #root .timer .controls .timer_controls {
+  display: flex;
+  flex-direction: column;
+}
+body #root .timer .controls .timer_controls p {
+  margin-top: 0;
+}
+body #root .timer .controls .timer_controls .control {
+  gap: 20px;
+}
+body #root .timer .controls .part {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-#decimal::before {
-  content: "Decimal (";
-}
-#decimal::after {
-  content: ")";
-}
-
-.btnPress {
-  -webkit-animation: pressed 1s linear;
-          animation: pressed 1s linear;
-}
-
-@-webkit-keyframes pressed {
-  0% {
-    background: var(--fifth);
-    color: var(--first);
-  }
-}
-
-@keyframes pressed {
-  0% {
-    background: var(--fifth);
-    color: var(--first);
-  }
-}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-@media only screen and (max-width: 900px) {
+.clicked {
+  -webkit-animation: click 1s linear;
+          animation: click 1s linear;
+}
+
+@-webkit-keyframes click {
+  0% {
+    background: rgb(190, 190, 190);
+  }
+}
+
+@keyframes click {
+  0% {
+    background: rgb(190, 190, 190);
+  }
+}
+@media only screen and (max-width: 880px) {
   body {
-    padding: 40px 0;
+    padding: 70px 0;
     overflow-y: scroll;
   }
-  body #root {
-    padding: 20px 30px;
+  body #root .timer {
+    flex-direction: column;
   }
-  body #root .calculator {
-    flex-direction: column-reverse;
-    width: 600px;
-    gap: 10px;
-  }
-  body #root .calculator .btns {
-    grid-template-columns: repeat(4, 90px);
+}
+@media only screen and (max-height: 550px) {
+  body {
+    padding: 50px 0;
+    overflow-y: scroll;
   }
 }/*# sourceMappingURL=index.css.map */
